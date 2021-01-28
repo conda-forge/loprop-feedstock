@@ -10,7 +10,7 @@ source:
   sha256: bd573b3b5e524dd65c1c79e6e69acde388c60eb162db4e11e169885f337f4b70
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - loprop=loprop.__main__:main
