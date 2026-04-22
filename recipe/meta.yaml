@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 6dc92bebf1bb1d8f3cc92f637bb6200a0e17a5d030b93dea9bd479fe8259d103
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - loprop=loprop.__main__:main
@@ -18,16 +18,18 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
     - blocked-matrix-utils
     - daltools
     - h5py
     - numpy
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - loprop
   commands:
